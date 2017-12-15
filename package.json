@@ -1,0 +1,11 @@
+{
+  "name": "gamebot",
+  "version": "1.0.0",
+  "description": "A discord bot for playing with the idea of chat based games.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josh Fangrad",
+  "license": "MIT"
+}
