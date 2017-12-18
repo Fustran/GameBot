@@ -1,18 +1,18 @@
 import { Command } from '../command';
-import { commandArgs } from '../commandArgs';
 import { Message, Client } from 'discord.js';
 
 export class Help extends Command {
     
     async exec(msg: Message, client: Client) {
-        
+        //HELP STUFF
     }
 
     constructor() {
         super({
             name: 'Help',
-            cmd: 'help',
-            desc: 'Displays a list of commands.'
+            cmdAliases: ['help', 'h'],
+            desc: 'Displays a list of commands. Takes no arguments.',
+            reqArgs: 0
         });
     }
 }

@@ -1,14 +1,19 @@
 import { Message, Client } from 'discord.js';
-import { commandArgs } from './commandArgs';
+import { CommandProperties } from './commandProperties';
 
 export abstract class Command {
     name: string;
     desc: string;
-    cmd: string;
+    cmdAliases: Array<string>;
+    reqArgs: number;
+    reqPerms?: Array<string>;
 
-    constructor(args: commandArgs) {
-        this.name = args.name;
-        this.cmd = args.cmd;
-        this.desc = args.desc;
+    constructor(props: CommandProperties) {
+        this.name = props.name;
+        this.cmdAliases = props.cmdAliases;
+        this.desc = props.desc;
+        this.reqArgs = props.reqArgs;
+        this.reqPerms = props.reqPerms;
     }
+    abstract exec(): Promise<any>
 }

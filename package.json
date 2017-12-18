@@ -4,7 +4,8 @@
   "description": "A discord bot for playing with the idea of chat based games.",
   "main": "index.js",
   "scripts": {
-    "test": "ts-node ./src/index.ts"
+    "build": "tsc",
+    "build:dev": "nodemon build/"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
   },
   "devDependencies": {
     "@types/node": "^8.5.1",
-    "ts-node": "^4.0.2",
+    "eslint": "^4.13.1",
+    "nodemon": "^1.13.3",
     "typescript": "^2.6.2"
   }
 }
