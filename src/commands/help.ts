@@ -1,10 +1,20 @@
 import { Command } from '../command';
-import { Message, Client } from 'discord.js';
+import { CommandArgs } from '../commandArgs';
 
-export class Help extends Command {
-    
-    async exec(msg: Message, client: Client) {
-        //HELP STUFF
+class Help extends Command {
+
+    async exec(args: CommandArgs) {
+        let text = '\n';
+        // We have the same command registered multiple times, so cache already parsed by name as well
+        let alreadyParsed = new Map();
+        let commands = args.client.cmds;
+        commands.forEach((cmd) => {
+            if (cmd instanceof Command && alreadyParsed.get(cmd.name) === undefined) {
+                text += `**Command Name:**\n${cmd.name}\n**Command Aliases:**\n${cmd.cmdAliases}\n**Description:**\n${cmd.desc}\n \n`;
+                alreadyParsed.set(cmd.name, cmd.name);
+            }
+        });
+        args.msg.reply(text);
     }
 
     constructor() {
@@ -15,4 +25,8 @@ export class Help extends Command {
             reqArgs: 0
         });
     }
+
+
 }
+
+export = Help;

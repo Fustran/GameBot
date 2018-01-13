@@ -1,4 +1,5 @@
-import { Message, Client } from "discord.js";
+import { Message } from 'discord.js';
+import { Client } from './Client';
 
 // Interface for what gets passed to our command classes
 export interface CommandArgs {

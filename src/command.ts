@@ -1,5 +1,6 @@
 import { Message, Client } from 'discord.js';
 import { CommandProperties } from './commandProperties';
+import { CommandArgs } from './commandArgs';
 
 export abstract class Command {
     name: string;
@@ -15,5 +16,5 @@ export abstract class Command {
         this.reqArgs = props.reqArgs;
         this.reqPerms = props.reqPerms;
     }
-    abstract exec(): Promise<any>
+    abstract exec(args: CommandArgs) : Promise<any>
 }

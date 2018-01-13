@@ -1,8 +1,8 @@
-import { Client } from 'discord.js';
+import { Client } from './Client';
 import { config } from './config';
-import { Listeners } from './listeners';
 
 let client = new Client();
 
-client.login(config.discordToken);
-Listeners.RegisterListeners(client);
+client.login(config.discordToken).catch((reason) => {
+    console.warn(`Failed to login: ${reason}`);
+});

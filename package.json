@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "build:dev": "nodemon build/"
+    "build:watch": "nodemon build/"
   },
   "repository": {
     "type": "git",
